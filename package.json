@@ -1,0 +1,22 @@
+{
+  "name": "escriba",
+  "version": "1.0.0",
+  "description": "Styles for helping writers write!",
+  "main": "escriba.js",
+  "scripts": {
+    "test": "echo \"Testing Escriba ;P\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/biomante/escriba"
+  },
+  "author": "R Covre",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/biomante/escriba/issues"
+  },
+  "homepage": "https://github.com/biomante/escriba",
+  "devDependencies": {
+    "less": "^2.0.0"
+  }
+}

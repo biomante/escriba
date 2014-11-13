@@ -1,49 +1,90 @@
-@bg-color: #eee;
-//@bg-color: #f9f4ff;
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
-@fg-color: #172f2f;
+@bg-color: #f6f4f8;
 
-@lnk-color: #4fa1a2;
+@fg-color: #354141;
 
-@hd-color: red;
+@header-color: #8f2525;
 
-.lnk-color (@lnk-color; @bd-color) {
-	& a {
-		color: @lnk-color;
-	}
-
-	& a:hover {
-		border-bottom-color: @bd-color;
-	}
-
-	& a:active {
-		border-color: @bd-color;
-	}
-}
-
-.lnk-full (@lnk-color: black; @bd-color: transparent; @bd-width: 1px) {
-	& a {
-		border-width: @bd-width;
-		border-color: @bd-color;
-	}
-	.lnk-color(@lnk-color; @bd-color);
-}
-
-.bd-radius (@radius: 1px) {
+.border-radius (@radius) {
 	border-radius: @radius;
 	-webkit-border-radius: @radius;
 	-moz-border-radius: @radius;
 }
 
+.lnk-color (@lnk-color; @border-color) {
+	& {
+		color: @lnk-color;
+	}
+
+	&:hover {
+		border-color: @border-color;
+	}
+}
+
 body {
+	font-family: 'Open Sans', sans-serif;
 	margin: 0;
 	padding: 0;
 	color: @fg-color;
 	background-color: @bg-color;
 
-	.lnk-full(@lnk-color, @fg-color, 1px);
+	a {
+		padding: 0 0.125em 0;
+		border-width: 0.0625em;
+		border-style: dashed;
+		border-color: transparent transparent @fg-color;
+		text-decoration: none;
+		font-weight: bold;
+		.lnk-color(@fg-color, @fg-color);
+	}
 }
 
 h1, h2, h3, h4, h5 {
-	color: @hd-color;
+	color: @header-color;
 }
+
+.speech {
+	display: inline-block;
+	padding: 0.125em 0.25em 0.125em;
+	border-width: 0.0625em;
+	border-style: dashed;
+	.border-radius(0.25em);
+}
+
+.speech-light {
+	color: #1e3232;
+	background-color: #dedede;
+	border-color: #1e3232;
+}
+
+.speech-dark {
+	color: #ceceff;
+	background-color: #253636;
+	border-color: #ceceff;
+}
+
+.lbl (@lbl-name; @fg-color; @bg-color) {
+	.label-@{lbl-name} {
+		color: @fg-color;
+		background-color: @bg-color;
+	}
+}
+
+@lbl-fg-sat: 44%;
+@lbl-fg-lig: 31%;
+
+@lbl-bg-sat: 20%;
+@lbl-bg-lig: 78%;
+
+.label {
+	display: inline-block;
+	padding: 0.0625em;
+}
+
+.lbl (default, hsl(0, 0, @lbl-fg-lig), hsl(0, 0, @lbl-bg-lig));
+.lbl (danger, hsl(0, @lbl-fg-sat, @lbl-fg-lig), hsl(0, @lbl-bg-sat, @lbl-bg-lig));
+.lbl (warning, hsl(60, @lbl-fg-sat, @lbl-fg-lig), hsl(60, @lbl-bg-sat, @lbl-bg-lig));
+.lbl (success, hsl(157, @lbl-fg-sat, @lbl-fg-lig), hsl(157, @lbl-bg-sat, @lbl-bg-lig));
+.lbl (info, hsl(240, @lbl-fg-sat, @lbl-fg-lig), hsl(240, @lbl-bg-sat, @lbl-bg-lig));
+.lbl (failure, hsl(304, @lbl-fg-sat, @lbl-fg-lig), hsl(304, @lbl-bg-sat, @lbl-bg-lig));

@@ -44,6 +44,17 @@ h1, h2, h3, h4, h5 {
 	color: @header-color;
 }
 
+@speech-color-dark: #253636;
+@speech-color-light: #dedede;
+
+.speech-color (@speech-name;@fg-color; @bg-color; @border-color) {
+	.speech-@{speech-name} {
+		color: @fg-color;
+		background-color: @bg-color;
+		border-color: @border-color;
+	}
+}
+
 .speech {
 	display: inline-block;
 	padding: 0.125em 0.25em 0.125em;
@@ -52,17 +63,9 @@ h1, h2, h3, h4, h5 {
 	.border-radius(0.25em);
 }
 
-.speech-light {
-	color: #1e3232;
-	background-color: #dedede;
-	border-color: #1e3232;
-}
+.speech-color (light, @speech-color-dark, @speech-color-light, @speech-color-dark);
 
-.speech-dark {
-	color: #ceceff;
-	background-color: #253636;
-	border-color: #ceceff;
-}
+.speech-color (dark, @speech-color-light, @speech-color-dark, @speech-color-light);
 
 .lbl (@lbl-name; @fg-color; @bg-color) {
 	.label-@{lbl-name} {
@@ -79,7 +82,8 @@ h1, h2, h3, h4, h5 {
 
 .label {
 	display: inline-block;
-	padding: 0.0625em;
+	padding: 0 0.125em 0;
+	font-weight: bold;
 }
 
 .lbl (default, hsl(0, 0, @lbl-fg-lig), hsl(0, 0, @lbl-bg-lig));

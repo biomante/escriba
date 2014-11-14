@@ -34,19 +34,33 @@ h5 {
   -webkit-border-radius: 0.25em;
   -moz-border-radius: 0.25em;
 }
+/*
 .speech-light {
-  color: #1e3232;
+	color: #253636;
+	background-color: #dedede;
+	border-color: #253636;
+}
+
+.speech-dark {
+	color: #ceceff;
+	background-color: #253636;
+	border-color: #ceceff;
+}
+*/
+.speech-light {
+  color: #253636;
   background-color: #dedede;
-  border-color: #1e3232;
+  border-color: #253636;
 }
 .speech-dark {
-  color: #ceceff;
+  color: #dedede;
   background-color: #253636;
-  border-color: #ceceff;
+  border-color: #dedede;
 }
 .label {
   display: inline-block;
-  padding: 0.0625em;
+  padding: 0 0.125em 0;
+  font-weight: bold;
 }
 .label-default {
   color: #4f4f4f;
